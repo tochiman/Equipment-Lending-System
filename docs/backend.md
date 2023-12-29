@@ -11,7 +11,7 @@
 | headers  | {'Content-Type': 'application/json', 'token': token} |
 | Response | JSON(以下に示す)                                     |
 - 成功時
-```json=
+```json
 {
     "status": 200,
     "data": {
@@ -26,14 +26,14 @@
 }
 ```
 - APIリクエスト失敗時
-```json=
+```json
 {
     "status": 400,
     "msg": string,
 }
 ```
 - サーバエラー時
-```json=
+```json
 {
     "status": 500,
     "msg": string,
@@ -48,7 +48,7 @@
 | headers  | {'Content-Type': 'application/json', 'token': token} |
 | Response | JSON(以下に示す)                                     |
 - 成功時
-```json=
+```json
 {
     "status": 200,
     "data": {
@@ -66,14 +66,14 @@
 }
 ```
 - APIリクエスト失敗時
-```json=
+```json
 {
     "status": 400,
     "msg": string,
 }
 ```
 - サーバエラー時
-```json=
+```json
 {
     "status": 500,
     "msg": string,
@@ -87,34 +87,38 @@
 | Method  | POST                                                 |
 | headers | {'Content-Type': 'application/json', 'token': token} |
 | body    | JSON(以下に示す)                                     |
+- リクエスト方法
+```json
+{
+  "equip_1": string,
+  "equip_2": string,
+  "equip_3": string,
+  "begin_year": int,
+  "begin_month": int,
+  "begin_day": int,
+  "end_year": int,
+  "end_month": int,
+  "end_day": int,
+  "overview": string,
+  "detail": string
+}
+```
 - 成功時
-```json=
+```json
 {
     "status": 201,
-    "data": {
-        "equip_1": string,
-        "equip_2": string,
-        "equip_3": string,
-        "begin_year": int,
-        "begin_month": int,
-        "begin_day": int,
-        "end_year": int,
-        "end_month": int,
-        "end_day": int,
-        "overview": string,
-        "detail": string
-    }
+    "msg":string,
 }
 ```
 - APIリクエスト失敗時
-```json=
+```json
 {
     "status": 400,
     "msg": string,
 }
 ```
 - サーバエラー時
-```json=
+```json
 {
     "status": 500,
     "msg": string,
@@ -130,7 +134,7 @@
 | headers  | {'Content-Type': 'application/json', 'token': token} |
 | Response | JSON(以下に示す)                                     |
 - 成功時
-```json=
+```json
 {
     "status": 200,
     "data": {
@@ -146,14 +150,14 @@
 ※ data.equipmentの中は返却物の名前:idが取得できる。
 ```
 - APIリクエスト失敗時
-```json=
+```json
 {
     "status": 400,
     "msg": string,
 }
 ```
 - サーバエラー時
-```json=
+```json
 {
     "status": 500,
     "msg": string,
@@ -166,25 +170,29 @@
 | Method  | POST                                                 |
 | headers | {'Content-Type': 'application/json', 'token': token} |
 | Body    | JSON(以下に示す)                                     |
+- リクエスト方法
+```json
+{
+  "return_id": int,
+  "remakrs": string,
+}
+```
 - 成功時
-```json=
+```json
 {
     "status": 201,
-    "data": {
-        "return_id": int,
-        "remakrs": string,
-    }
+    "msg": string,
 }
 ```
 - APIリクエスト失敗時
-```json=
+```json
 {
     "status": 400,
     "msg": string,
 }
 ```
 - サーバエラー時
-```json=
+```json
 {
     "status": 500,
     "msg": string,
@@ -198,30 +206,34 @@
 | Method  | POST                                                 |
 | headers | {'Content-Type': 'application/json', 'token': token} |
 | Body    | JSON(以下に示す)                                     |
+- リクエスト方法
+```json
+{
+  "equip_1": string,
+  "equip_2": string,
+  "equip_3": string,
+  "equip_name": string,
+  "equip_man_num": string,
+  "possible_lental": string,
+  "remarks": string,
+}
+```
 - 成功時
-```json=
+```json
 {
     "status": 201,
-    "data": {
-        "equip_1": string,
-        "equip_2": string,
-        "equip_3": string,
-        "equip_name": string,
-        "equip_man_num", string,
-        "possible_lental": string,
-        "remarks": string,
-    }
+    "msg": string,
 }
 ```
 - APIリクエスト失敗時
-```json=
+```json
 {
     "status": 400,
     "msg": string,
 }
 ```
 - サーバエラー時
-```json=
+```json
 {
     "status": 500,
     "msg": string,
@@ -234,24 +246,28 @@
 | Method  | DELETE                                               |
 | headers | {'Content-Type': 'application/json', 'token': token} |
 | Body    | JSON(以下に示す)                                     |
+- リクエスト方法
+```json
+{
+    "equip_man_num": string,
+}
+```
 - 成功時
-```json=
+```json
 {
     "status": 201,
-    "data": {
-        "equip_man_num": string,
-    }
+    "msg": string,
 }
 ```
 - APIリクエスト失敗時
-```json=
+```json
 {
     "status": 400,
     "msg": string,
 }
 ```
 - サーバエラー時
-```json=
+```json
 {
     "status": 500,
     "msg": string,
@@ -265,26 +281,30 @@
 | Method  | PUT                                                  |
 | headers | {'Content-Type': 'application/json', 'token': token} |
 | Body    | JSON(以下に示す)                                     |
+- リクエスト方法
+```json
+{
+  "equip_man_num": string,
+  "change_item": string,
+  "change_detail": string,
+}
+```
 - 成功時
-```json=
+```json
 {
     "status": 201,
-    "data": {
-        "equip_man_num": string,
-        "change_item": string,
-        "change_detail": string,
-    }
+    "msg": string,
 }
 ```
 - APIリクエスト失敗時
-```json=
+```json
 {
     "status": 400,
     "msg": string,
 }
 ```
 - サーバエラー時
-```json=
+```json
 {
     "status": 500,
     "msg": string,
@@ -298,26 +318,30 @@
 | Method  | POST                                                 |
 | headers | {'Content-Type': 'application/json', 'token': token} |
 | Body    | JSON(以下に示す)                                     |
+- リクエスト方法
+```json
+{
+    "name": string,
+    "student_num": int,
+    "password": string,
+}
+```
 - 成功時
-```json=
+```json
 {
     "status": 201,
-    "data": {
-        "name": string,
-        "student_num": int,
-        "password": string,
-    }
+    "msg": string,
 }
 ```
 - APIリクエスト失敗時
-```json=
+```json
 {
     "status": 400,
     "msg": string,
 }
 ```
 - サーバエラー時
-```json=
+```json
 {
     "status": 500,
     "msg": string,
@@ -331,26 +355,30 @@
 | Method  | DELETE                                               |
 | headers | {'Content-Type': 'application/json', 'token': token} |
 | Body    | JSON(以下に示す)                                     | 
+- リクエスト方法
+```json
+{
+    "name": string,
+    "student_num": int,
+    "password": string,
+}
+```
 - 成功時
-```json=
+```json
 {
     "status": 201,
-    "data": {
-        "name": string,
-        "student_num": int,
-        "password": string,
-    }
+    "msg": string,
 }
 ```
 - APIリクエスト失敗時
-```json=
+```json
 {
     "status": 400,
     "msg": string,
 }
 ```
 - サーバエラー時
-```json=
+```json
 {
     "status": 500,
     "msg": string,
@@ -364,26 +392,30 @@
 | Method  | PUT                                                  |
 | headers | {'Content-Type': 'application/json', 'token': token} |
 | Body    | JSON(以下に示す)                                     |
+- リクエスト方法
+```json
+{
+  "change_item": string,
+  "change_detail": string,
+  "password": string,
+}
+```
 - 成功時
-```json=
+```json
 {
     "status": 201,
-    "data": {
-        "change_item": string,
-        "change_detail": string,
-        "password": string,
-    }
+    "msg": string,,
 }
 ```
 - APIリクエスト失敗時
-```json=
+```json
 {
     "status": 400,
     "msg": string,
 }
 ```
 - サーバエラー時
-```json=
+```json
 {
     "status": 500,
     "msg": string,
@@ -393,29 +425,33 @@
 ### /admin/equipment/aproval/[id] 
 | Kind    | Description                                          |
 | ------- | ---------------------------------------------------- |
-| URI     | /api/v1/register/aproval/equipment                   |
+| URI     | /api/v1/register/equipment/aproval                   |
 | Method  | POST                                                 |
 | headers | {'Content-Type': 'application/json', 'token': token} |
 | Body    | JSON(以下に示す)                                     |
+- リクエスト方法
+```json
+{
+    "detail": string,
+    "allow": string,
+}
+```
 - 成功時
-```json=
+```json
 {
     "status": 201,
-    "data": {
-        "detail": string,
-        "allow": string,
-    }
+    "msg": string,,
 }
 ```
 - APIリクエスト失敗時
-```json=
+```json
 {
     "status": 400,
     "msg": string,
 }
 ```
 - サーバエラー時
-```json=
+```json
 {
     "status": 500,
     "msg": string,
