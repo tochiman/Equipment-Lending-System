@@ -23,50 +23,50 @@ services:
     networks:
       - frontend
       
-  # back:
-  #   init: true
-  #   container_name: ELS_Back
-  #   build: 
-  #     context: ./back
-  #     dockerfile: Dockerfile
-  #   ports:
-  #    - 8080:8080
-  #   tty: tty
-  #   restart: always
-  #   volumes:
-  #     - type: bind
-  #       source: ./back
-  #       target: /go/src
-  #   env_file:
-  #     - ./db/.env_sql
-  #   depends_on:
-  #     db:
-  #       condition: service_started
-  #   networks:
-  #     - frontend
-  #     - backend
+  back:
+    init: true
+    container_name: ELS_Back
+    build: 
+      context: ./back
+      dockerfile: Dockerfile
+    ports:
+     - 8080:8080
+    tty: true
+    restart: always
+    volumes:
+      - type: bind
+        source: ./back
+        target: /go/src
+    env_file:
+      - ./db/.env_sql
+    depends_on:
+      db:
+        condition: service_started
+    networks:
+      - frontend
+      - backend
 
-  # db:
-  #   init: true
-  #   container_name: ELS_DB
-  #   build:
-  #     context: ./db
-  #     dockerfile: Dockerfile
-  #   tty: true
-  #   # platform: linux/x86_64
-  #   ports:
-  #     - 3306:3306
-  #   env_file:
-  #     - ./db/.env_sql
-  #   volumes:
-  #     - type: volume
-  #       source: ELS_volume
-  #       target: /var/lib/mysql
-  #     # - type: bind
-  #     #   source: ./db/init
-  #     #   target: /docker-entrypoint-initdb.d
-  #   networks:
-  #     - backend
+  db:
+    init: true
+    container_name: ELS_DB
+    build:
+      context: ./db
+      dockerfile: Dockerfile
+    tty: true
+    # platform: linux/x86_64
+    ports:
+      - 3306:3306
+    env_file:
+      - ./db/.env_sql
+    volumes:
+      - type: volume
+        source: ELS_volume
+        target: /var/lib/mysql
+      # - type: bind
+      #   source: ./db/init
+      #   target: /docker-entrypoint-initdb.d
+    networks:
+      - backend
 
 volumes:
   ELS_volume:
